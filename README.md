@@ -8,6 +8,8 @@ Version: v0.1.0
 
 ## Message Types
 
+Address 0x00 is broadcast
+
 Need some way of creating can packets
 256 (2^8) nodes max to a bus
 Ids are message identifiers 11 bits long
