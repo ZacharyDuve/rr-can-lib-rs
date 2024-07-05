@@ -1,4 +1,4 @@
-
+#![no_std]
 /*
 This file is meant as an import of other files in library
  */
