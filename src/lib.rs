@@ -7,7 +7,7 @@ use embedded_can::{Frame, Id, StandardId};
 
 pub mod address;
 pub mod zan_can_type;
-mod emegency;
+pub mod emegency;
 pub mod sent_data;
 
 use zan_can_type::ZanCanFrameType;
