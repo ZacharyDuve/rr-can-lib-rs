@@ -28,6 +28,7 @@ impl TryFrom<u8> for EmegencyStatus {
     }
 }
 
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub struct EmergencyReason {
     pub reason: u16
 }

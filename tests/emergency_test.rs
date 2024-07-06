@@ -10,5 +10,9 @@ fn test_emegency_encodes_then_decodes_to_same() {
 
     let frame = ZanCanFrame::new_emergency(addr, status, reason);
 
-    assert_eq!(ZanCanAddress::from(frame.id()), addr);
+    assert_eq!(ZanCanAddress::try_from(frame.id()).expect("address failed to convert which it shouldn't have"), addr);
+    let (back_status, back_reason) = frame.decode_emergency().expect("expected to be able to decode error frame but it failed");
+
+    assert_eq!(status, back_status);
+    assert_eq!(reason, back_reason);
 }

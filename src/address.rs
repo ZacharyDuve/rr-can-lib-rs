@@ -26,10 +26,11 @@ impl From<ZanCanAddress> for u8 {
 impl TryFrom<Id> for ZanCanAddress {
     type Error = &'static str;
     fn try_from(value: Id) -> Result<Self, Self::Error> {
-        if Id::Extended(_) = value {
-            Err("unable to decode extended frame to ZanCanAddress")
-        } else {
-            
+        match value {
+            Id::Extended(_) => Err("unable to convert from Id to ZanCanAddress due to extended ids not being supported"),
+            Id::Standard(sid) => {
+                Ok(ZanCanAddress { id: sid.as_raw() as u8 })
+            }
         }
     }
 }
